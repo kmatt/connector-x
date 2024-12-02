@@ -16,6 +16,7 @@ pip install connectorx
     * Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
     * Install [just](https://github.com/casey/just): `cargo install just`
     * Install [Poetry](https://python-poetry.org/docs/): `pip3 install poetry`
+    * Install [maturin](https://www.maturin.rs/): `pip3 install maturin`
 
 * Step 1: Fresh clone of source.
 ```bash
@@ -41,6 +42,7 @@ just build-python-wheel
 ```
 
 NOTES:
-* `OPENSSL_NO_VENDOR=1` might required to compile for windows users.
 * Dynamic library is required for the python installation. (e.g. If you are using `pyenv`, use command `PYTHON_CONFIGURE_OPTS=“--enable-shared” pyenv install {version}` to install python since dylib is not enabled by default.)
-
+* For Windows:
+  * `OPENSSL_NO_VENDOR=1` might required to compile
+  * Perl in Git for Windows may not be sufficient. [Strawberry Perl](https://strawberryperl.com) has been used to build successfully.
